@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/okaniyoshiii/programming-language/internal/compiler"
 	pl "github.com/okaniyoshiii/tree-sitter-programming-language/bindings/go"
 	tree_sitter "github.com/tree-sitter/go-tree-sitter"
 )
@@ -24,5 +25,7 @@ func main() {
 
 		root := tree.RootNode()
 		fmt.Println(root.ToSexp())
+
+		compiler.Compile(line, root)
 	}
 }
